@@ -26,6 +26,7 @@
             padding: 0.5rem;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             position: relative;
             z-index: 1;
         }
@@ -35,6 +36,7 @@
             text-decoration: none;
             margin: 0 1rem;
             font-weight: bold;
+            font-size: 1rem;
         }
 
         nav a:hover {
@@ -62,14 +64,23 @@
             left: 50%;
             transform: translate(-50%, -50%);
             display: flex;
+            flex-direction: column;
             gap: 2rem;
             z-index: 2;
+            padding: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .center-boxes {
+                flex-direction: row;
+            }
         }
 
         .center-box {
             background-color: white;
-            width: 600px;
-            height: 500px;
+            width: 90%;
+            max-width: 600px;
+            height: auto;
             border-radius: 16px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             display: flex;
@@ -78,20 +89,31 @@
             align-items: center;
             color: #1a1a2e;
             text-align: center;
-            padding: 15px;
+            padding: 1.5rem;
         }
 
         .center-box h2 {
             margin: 0;
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: #1a1a2e;
         }
 
         .center-box p {
             margin: 1rem 0 0;
-            font-size: 1.4rem;
+            font-size: 1rem;
             line-height: 1.5;
         }
+
+        @media (min-width: 768px) {
+            .center-box h2 {
+                font-size: 2rem;
+            }
+
+            .center-box p {
+                font-size: 1.2rem;
+            }
+        }
+
         footer {
             text-align: center;
             padding: 1rem;
@@ -118,10 +140,8 @@
     <header>
         <h1>R|S Space</h1>
     </header>
-
     
     <div class="center-boxes">
-        
         <div class="center-box">
             <h2>Welcome to R|S Space!</h2>
             <p>
@@ -130,8 +150,6 @@
                 <br>don't hesitate to reach out. We're committed to providing you with the best service possible!
             </p>
         </div>
-
-        
         <div class="center-box">
             <p>
                 We want to let you know that our prices are negotiable, and we're open to discussing various options. 

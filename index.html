@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
         header {
@@ -23,66 +23,22 @@
 
         nav {
             background-color: #1a1a2e;
+            padding: 0.5rem;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            right: -100%;
-            height: 100%;
-            width: 70%;
-            max-width: 300px;
-            transition: right 0.3s ease;
-            z-index: 2;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 1rem 0;
+            margin: 0 1rem;
             font-weight: bold;
-            font-size: 1.2rem;
         }
 
         nav a:hover {
             text-decoration: underline;
-        }
-
-        .menu-toggle {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            z-index: 3;
-        }
-
-        .menu-toggle:focus {
-            outline: none;
-        }
-
-        .menu-open nav {
-            right: 0;
-        }
-
-        /* Desktop view */
-        @media (min-width: 768px) {
-            nav {
-                position: relative;
-                right: 0;
-                height: auto;
-                flex-direction: row;
-                justify-content: center;
-                width: 100%;
-                max-width: none;
-            }
-
-            .menu-toggle {
-                display: none;
-            }
         }
 
         .background {
@@ -106,25 +62,14 @@
             left: 50%;
             transform: translate(-50%, -50%);
             display: flex;
-            flex-direction: column;
             gap: 2rem;
             z-index: 2;
-            padding: 1rem;
-            width: 90%;
-        }
-
-        @media (min-width: 768px) {
-            .center-boxes {
-                flex-direction: row;
-                width: auto;
-            }
         }
 
         .center-box {
             background-color: white;
-            width: 100%;
-            max-width: 600px;
-            height: auto;
+            width: 600px;
+            height: 500px;
             border-radius: 16px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             display: flex;
@@ -133,31 +78,20 @@
             align-items: center;
             color: #1a1a2e;
             text-align: center;
-            padding: 1.5rem;
+            padding: 15px;
         }
 
         .center-box h2 {
             margin: 0;
-            font-size: 1.5rem;
+            font-size: 2rem;
             color: #1a1a2e;
         }
 
         .center-box p {
             margin: 1rem 0 0;
-            font-size: 1rem;
+            font-size: 1.4rem;
             line-height: 1.5;
         }
-
-        @media (min-width: 768px) {
-            .center-box h2 {
-                font-size: 2rem;
-            }
-
-            .center-box p {
-                font-size: 1.2rem;
-            }
-        }
-
         footer {
             text-align: center;
             padding: 1rem;
@@ -166,6 +100,53 @@
             position: relative;
             z-index: 1;
         }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            .agenda-button {
+                padding: 8px 16px;
+                font-size: 1em;
+            }
+
+            .school-button {
+                padding: 15px 30px;
+                font-size: 1em;
+            }
+
+            .buttons-container {
+                gap: 20px;
+            }
+
+            .top-buttons {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.2em;
+            }
+
+            .agenda-button {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+
+            .school-button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+
+            .buttons-container {
+                gap: 15px;
+            }
+
+            .top-buttons {
+                gap: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -173,8 +154,7 @@
         <canvas id="backgroundCanvas"></canvas>
     </div>
 
-    <button class="menu-toggle" id="menuToggle">☰</button>
-    <nav id="navMenu">
+    <nav>
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
         <a href="bot.html">Contact</a>
@@ -185,8 +165,10 @@
     <header>
         <h1>R|S Space</h1>
     </header>
+
     
     <div class="center-boxes">
+        
         <div class="center-box">
             <h2>Welcome to R|S Space!</h2>
             <p>
@@ -195,30 +177,26 @@
                 <br>don't hesitate to reach out. We're committed to providing you with the best service possible!
             </p>
         </div>
+
+        
         <div class="center-box">
             <p>
                 We want to let you know that our prices are negotiable, and we're open to discussing various options. 
             <br>    If you have a service you'd like to offer in exchange, we're happy to explore that possibility. 
             <br>    We believe in finding solutions that work for everyone, so please don't hesitate to reach out and discuss your needs.
             </p>
-        </div>
+        </div> 
     </div>
 
     <script>
         const canvas = document.getElementById('backgroundCanvas');
         const ctx = canvas.getContext('2d');
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
-
-        // Responsive Navigation
-        menuToggle.addEventListener('click', () => {
-            document.body.classList.toggle('menu-open');
-        });
 
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
         const dots = [];
+        const lines = [];
 
         function createDots() {
             for (let i = 0; i < 100; i++) {

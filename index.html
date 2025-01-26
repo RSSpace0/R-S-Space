@@ -64,6 +64,7 @@
             display: flex;
             gap: 2rem;
             z-index: 2;
+            flex-wrap: wrap; /* Zorgt ervoor dat de boxen kunnen "wrappen" */
         }
 
         .center-box {
@@ -92,6 +93,7 @@
             font-size: 1.4rem;
             line-height: 1.5;
         }
+
         footer {
             text-align: center;
             padding: 1rem;
@@ -100,27 +102,22 @@
             position: relative;
             z-index: 1;
         }
+
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.5em;
+            .center-boxes {
+                flex-direction: column; /* Zet de boxen onder elkaar */
+                gap: 1rem; /* Verminder de afstand tussen boxen voor mobiele apparaten */
+                position: static; /* Verwijdert absolute positionering */
+                transform: none; /* Haalt de translatie weg */
+                top: auto; 
+                left: auto;
+                padding: 2rem 1rem;
             }
 
-            .agenda-button {
-                padding: 8px 16px;
-                font-size: 1em;
-            }
-
-            .school-button {
-                padding: 15px 30px;
-                font-size: 1em;
-            }
-
-            .buttons-container {
-                gap: 20px;
-            }
-
-            .top-buttons {
-                gap: 15px;
+            .center-box {
+                width: 100%; /* Boxen nemen de volledige breedte in */
+                max-width: 95%; /* Houdt wat padding aan de zijkanten */
+                margin: 0 auto; /* Centreert de boxen */
             }
         }
 
@@ -129,22 +126,8 @@
                 font-size: 1.2em;
             }
 
-            .agenda-button {
-                padding: 6px 12px;
-                font-size: 0.9em;
-            }
-
-            .school-button {
-                padding: 10px 20px;
-                font-size: 0.9em;
-            }
-
-            .buttons-container {
-                gap: 15px;
-            }
-
-            .top-buttons {
-                gap: 10px;
+            .center-box p {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -166,9 +149,7 @@
         <h1>R|S Space</h1>
     </header>
 
-    
     <div class="center-boxes">
-        
         <div class="center-box">
             <h2>Welcome to R|S Space!</h2>
             <p>
@@ -177,7 +158,6 @@
                 <br>don't hesitate to reach out. We're committed to providing you with the best service possible!
             </p>
         </div>
-
         
         <div class="center-box">
             <p>
@@ -196,7 +176,6 @@
         canvas.height = window.innerHeight;
 
         const dots = [];
-        const lines = [];
 
         function createDots() {
             for (let i = 0; i < 100; i++) {

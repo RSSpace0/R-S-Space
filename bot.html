@@ -41,23 +41,33 @@
             text-decoration: underline;
         }
 
-        .webchat {
+        .embedded-website-container {
             position: fixed;
-            bottom: 40px;
-            right: 430px;
-            height: 45px;
-            width: 45px;
-            border-radius: 8px;
+            bottom: 50px;
+            right: 50px;
+            width: 60%; 
+            height: 60%; 
+            background: rgba(26, 26, 46, 0.8); 
+            border-radius: 10px;
             overflow: hidden;
-            z-index: 3;
+            z-index: 2;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
         }
 
-        .webchat iframe {
-            height: 100%;
+        .embedded-website-container iframe {
             width: 100%;
+            height: 100%;
             border: none;
         }
 
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #1a1a2e;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+        }
 
         .background {
             position: fixed;
@@ -72,16 +82,6 @@
 
         .background canvas {
             display: block;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background-color: #1a1a2e;
-            color: #fff;
-            position: relative;
-            z-index: 1;
-            margin-top: auto;
         }
     </style>
 </head>
@@ -102,25 +102,9 @@
         <h1>R|S Space - Chatbot</h1>
     </header>
 
-    <div class="webchat" style="height: 600px; width: 400px;">
-        <iframe
-          style="height: 100%; width: 100%; border: none;"
-          srcdoc='
-          <!doctype html>
-          <html lang="en">
-            <head></head>
-            <body>
-              <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
-              <script defer>
-                window.botpress.on("webchat:ready", (conversationId) => {
-                  botpress.open();
-                 <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
-                <script src="https://files.bpcontent.cloud/2025/01/26/15/20250126150950-0XD3IBUJ.js"></script>
-              </script>
-            </body>
-          </html>'
-        ></iframe>
-      </div>
+    <div class="embedded-website-container">
+        <iframe src="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/01/26/19/20250126194016-016IJWAD.json"></iframe>
+    </div>
 
     <script>
         const canvas = document.getElementById('backgroundCanvas');

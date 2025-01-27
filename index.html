@@ -57,20 +57,20 @@
         }
 
         .center-boxes {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            position: relative; /* Zorgt dat het binnen de flow blijft */
+            margin-top: 2rem; /* Creëer ruimte onder de header en nav */
             display: flex;
+            flex-direction: column; /* Zet de items onder elkaar */
             gap: 2rem;
             z-index: 2;
-            flex-wrap: wrap; /* Zorgt ervoor dat de boxen kunnen "wrappen" */
+            align-items: center; /* Centrer horizontaal */
         }
 
         .center-box {
             background-color: white;
-            width: 600px;
-            height: 500px;
+            width: 90%; /* Zorg dat de blokken beter passen op kleinere schermen */
+            max-width: 600px; /* Behoud een limiet op de breedte */
+            height: auto; /* Laat de hoogte automatisch aanpassen */
             border-radius: 16px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             display: flex;
@@ -104,26 +104,26 @@
         }
 
         @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
             .center-boxes {
-                flex-direction: column; /* Zet de boxen onder elkaar */
-                gap: 1rem; /* Verminder de afstand tussen boxen voor mobiele apparaten */
-                position: static; /* Verwijdert absolute positionering */
-                transform: none; /* Haalt de translatie weg */
-                top: auto; 
-                left: auto;
-                padding: 2rem 1rem;
+                gap: 1.5rem;
             }
 
             .center-box {
-                width: 100%; /* Boxen nemen de volledige breedte in */
-                max-width: 95%; /* Houdt wat padding aan de zijkanten */
-                margin: 0 auto; /* Centreert de boxen */
+                padding: 10px;
             }
         }
 
         @media (max-width: 480px) {
             header h1 {
                 font-size: 1.2em;
+            }
+
+            .center-boxes {
+                gap: 1rem;
             }
 
             .center-box p {
@@ -158,7 +158,7 @@
                 <br>don't hesitate to reach out. We're committed to providing you with the best service possible!
             </p>
         </div>
-        
+
         <div class="center-box">
             <p>
                 We want to let you know that our prices are negotiable, and we're open to discussing various options. 
@@ -176,6 +176,7 @@
         canvas.height = window.innerHeight;
 
         const dots = [];
+        const lines = [];
 
         function createDots() {
             for (let i = 0; i < 100; i++) {

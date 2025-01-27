@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         header {
@@ -57,20 +57,20 @@
         }
 
         .center-boxes {
-            position: relative; /* Zorgt dat het binnen de flow blijft */
-            margin-top: 2rem; /* Creëer ruimte onder de header en nav */
+            position: relative;
+            margin-top: 2rem;
             display: flex;
-            flex-direction: column; /* Zet de items onder elkaar */
+            flex-direction: column;
             gap: 2rem;
             z-index: 2;
-            align-items: center; /* Centrer horizontaal */
+            align-items: center;
+            padding: 1rem;
         }
 
         .center-box {
             background-color: white;
-            width: 90%; /* Zorg dat de blokken beter passen op kleinere schermen */
-            max-width: 600px; /* Behoud een limiet op de breedte */
-            height: auto; /* Laat de hoogte automatisch aanpassen */
+            width: 90%;
+            max-width: 600px;
             border-radius: 16px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             display: flex;

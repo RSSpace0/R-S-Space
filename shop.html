@@ -122,7 +122,33 @@
             position: relative;
             z-index: 1;
         }
-        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            .center-boxes {
+                gap: 1.5rem;
+            }
+
+            .center-box {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.2em;
+            }
+
+            .center-boxes {
+                gap: 1rem;
+            }
+
+            .center-box p {
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -148,7 +174,7 @@
                 <img src="pic/logo.png" alt="Product 1" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">logo</h2>
-                    <p class="product-price">$?.-</p>
+                    <p class="product-price">$6.-</p>
                     <button class="product-button" onclick="showInfo('logo')">More Info</button>
                 </div>
             </div>
@@ -156,7 +182,7 @@
                 <img src="pic/banner.png" alt="Product 2" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Banner</h2>
-                    <p class="product-price">$?.-</p>
+                    <p class="product-price">$4.-</p>
                     <button class="product-button" onclick="showInfo('banner')">More Info</button>
                 </div>
             </div>
@@ -164,7 +190,7 @@
                 <img src="pic/discord.png" alt="Product 3" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Discord Server</h2>
-                    <p class="product-price">$0,-</p>
+                    <p class="product-price">€,- FREE</p>
                     <button class="product-button" onclick="showInfo('discord server')">More Info</button>
                 </div>
             </div>
@@ -172,7 +198,7 @@
                 <img src="pic/workweb.png" alt="Product 4" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Website</h2>
-                    <p class="product-price">$?,-</p>
+                    <p class="product-price">€,-  Contact Us For The Price</p>
                     <button class="product-button" onclick="showInfo('website')">More Info</button>
                 </div>
             </div>
@@ -180,24 +206,16 @@
                 <img src="pic/workweb.png" alt="Product 5" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Workspace</h2>
-                    <p class="product-price">$?.-</p>
+                    <p class="product-price">€,-  Contact Us For The Price</p>
                     <button class="product-button" onclick="showInfo('workspace')">More Info</button>
                 </div>
             </div>
             <div class="product-card">
                 <img src="pic/bot.png" alt="Product 6" class="product-image">
                 <div class="product-info">
-                    <h2 class="product-title">Chatbot system (= +Website)</h2>
-                    <p class="product-price">$?.-</p>
-                    <button class="product-button" onclick="showInfo('chatbot')">More Info</button>
-                </div>
-            </div>
-            <div class="product-card" style="grid-column: span 3; text-align: center;">
-                <img src="pic/discord.png" alt="Product 6" class="product-image">
-                <div class="product-info">
                     <h2 class="product-title">Discord Bot</h2>
-                    <p class="product-price">$?.-</p>
-                    <button class="product-button" onclick="showInfo('discord bot')">More Info</button>
+                    <p class="product-price">€,- FREE</p>
+                    <button class="product-button" onclick="showInfo('chatbot')">More Info</button>
                 </div>
             </div>
         </div>
@@ -234,7 +252,7 @@
                 workspace: "There are several create options available for you to choose from. If you’d like to purchase one, please don’t hesitate to get in touch with us.",
                 chatbot: "There are several create options available for you to choose from. If you’d like to purchase one, please don’t hesitate to get in touch with us.",
             };
-            alert(messages[product] || "More information will be available soon.");
+            alert(messages[product] || "ERROR 404");
         }
         createDots();
         requestAnimationFrame(() => { /* Animation */ });
